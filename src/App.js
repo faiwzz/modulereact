@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Launches from "./components/Launches/Launches";
+import {Users} from "./components/Users/Users";
+import {UserPosts} from "./components/Users/Posts/UserPosts";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    let [userId, setUserId] = useState(null);
+    return (
+        <div>
+          {/*<UserPosts/>*/}
+          {/*  <Launches/>*/}
+            <Users setUserId={setUserId}/>
+            {userId&&<UserPosts userId={userId}/>}
+        </div>
+    );
+};
 
 export default App;
